@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+#select-div{
+    width: 30%;
+    margin:45px;
+}
+#editor-title{
+    width: 100%;
+    background-color: white; 
+     box-shadow: 5px 5px 5px grey;
+     border:1px solid grey;
+     border-radius: 10px;
+}
+#notif-image-url{
+    width: 100%;
+    background-color: white; 
+     box-shadow: 5px 5px 5px grey;
+     border:1px solid grey;
+     border-radius: 10px;
+}
+#date{
+    width: 100%;
+    background-color: white; 
+     box-shadow: 5px 5px 5px grey;
+     border:1px solid grey;
+     border-radius: 10px;
+}
+.row{
+    margin:30px;
+}
+
+.nav-div{
+    display: block;
+    float: left;
+}
+.select-form{
+    display: block;
+    width:200px;
+    float:right;
+}
+app-ngx-editor{
+     background-color: white; 
+    
+}
