@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HomeComponent } from './components/home/home.component';
 import { AdminAddComponent } from './components/admin-add/admin-add.component';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +36,7 @@ import { AppStatisticsComponent } from './components/app-statistics/app-statisti
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,
+    ToastrModule.forRoot(),
     TooltipModule.forRoot(),
     NgxEditorModule,
     HttpClientModule,

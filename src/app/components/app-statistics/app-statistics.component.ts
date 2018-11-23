@@ -16,7 +16,7 @@ export class AppStatisticsComponent implements OnInit {
     this.db.list("/fcm_token").valueChanges()
       .subscribe(data=>{
         this.num_users = data.length;
-        this.product_keys = data;
+        //this.product_keys = data;
       })
   }
 

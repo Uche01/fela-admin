@@ -16,16 +16,18 @@ export class HomeComponent implements OnInit {
   }
 
   list: any;
-  selectedOption: string = "";
+  selectedOption: string = "today";
   titles:string[] = new Array();
   
   
 
 
   getList(){
+    //this.titles = new Array();
     this.af.list("/Messages").valueChanges()
       .subscribe(data => {
         this.list = data
+        this.titles = new Array();
         //console.log(this.list)
 
         this.titles[0] = "today"

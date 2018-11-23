@@ -24,6 +24,13 @@
      border:1px solid grey;
      border-radius: 10px;
 }
+#short-desc{
+    width: 100%;
+    background-color: white; 
+     box-shadow: 5px 5px 5px grey;
+     border:1px solid grey;
+     border-radius: 10px;
+}
 .row{
     margin:30px;
 }

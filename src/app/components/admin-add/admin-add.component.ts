@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
 import {HttpHeaderResponse} from '@angular/common/http'
 import { AngularFireDatabase } from 'angularfire2/database';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-add',
@@ -21,6 +22,7 @@ export class AdminAddComponent implements OnInit{
   set selectedTopic(newTopic: string) {
     this._selectedTopic = newTopic;
 
+    this.clicked = false;
     if(this._selectedTopic != "today"){
       this.db.list("/Messages").valueChanges()
       .subscribe(data => {
@@ -32,6 +34,7 @@ export class AdminAddComponent implements OnInit{
             this.htmlContent = element.description
             this.title = element.title
             this.notif_image_url = element.notif_image_url
+            this.short_desc = element.short_desc
           }
         });
       })
@@ -43,14 +46,26 @@ export class AdminAddComponent implements OnInit{
   }
 
 
+  clicked = false;
+
+  isValidInput(){
+    if(this.title==""||this.short_desc==""||this.htmlContent==""||this.date==""||this._selectedTopic=="")
+      return false;
+    return true;
+  }
 
   submit(){
+    this.clicked=true;
     console.log("submitted");
     console.log(this.selectedTopic)
     if(this._selectedTopic == "today")
-      this.db.list("Messages").push({date_time:this.date,
+      this.db.list("Messages").push({date_time:this.date, short_desc:this.short_desc,
          description:this.htmlContent,
          title: this.title, notif_image_url: this.notif_image_url})
+          .then(data=>{
+            if(data){this.toastr.success('FELA admin!', 'Message added successfully!!!');}
+            else{this.toastr.warning('FELA admin!', 'Failed to add message!');}
+        })
     else{
       this.db.list("Messages").snapshotChanges()
         .subscribe(snapshots => {
@@ -61,8 +76,14 @@ export class AdminAddComponent implements OnInit{
               
                 this.db.object(`Messages/${push_id}/`)
                   .update({title: this.title, 
-                    description:this.htmlContent,
+                    description:this.htmlContent, short_desc:this.short_desc,
                      date_time: this.date, notif_image_url: this.notif_image_url})
+                     .then(error=>{
+                       if(!error){
+                        this.toastr.success('FELA admin!', 'Message updated successfully!!!');
+                       }
+                     })
+                    
               
             }
           });
@@ -73,7 +94,7 @@ export class AdminAddComponent implements OnInit{
   }
 
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase, private toastr: ToastrService) { }
 
   editorConfig = {
     editable: true,
@@ -86,6 +107,7 @@ export class AdminAddComponent implements OnInit{
 
   title = "";
   date = this.formatDate(new Date());
+  short_desc = "";
   item = document.createElement('div');
   
   htmlContent = ""

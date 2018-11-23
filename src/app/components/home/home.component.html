@@ -5,14 +5,15 @@
           <img src="src/assets/images/logo.png" alt="logo" style="width:40px;"> <span>FUTO E-Learning App</span>
         </a>
     </div>
-    
-        <select class="select-form" name="date" [(ngModel)]="selectedOption">
+    <div width="100%">
+        <select float="right" class="select-form" name="date" [(ngModel)]="selectedOption">
             <option *ngFor="let title of titles" [ngValue]="title">
                 {{ title }}
             </option>
         </select> 
+    </div>
       </nav>
         
 
     <app-admin-add [selectedTopic]="selectedOption"></app-admin-add>
-    <!-- <app-app-statistics></app-app-statistics> -->
+    
