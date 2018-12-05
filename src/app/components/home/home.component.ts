@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,8 +12,20 @@ export class HomeComponent implements OnInit {
 
   constructor(private af: AngularFireDatabase) { }
 
+  message:string;
+
+  receiveMessage($event) {
+    this.message = $event
+    if(this.message == "false")
+      this.getList("/Messages2")
+    else
+      this.getList("/Messages1")
+    console.log(this.message)
+  }
+
   ngOnInit() {
-    this.getList()
+    
+    this.getList("/Messages1")
   }
 
   list: any;
@@ -22,9 +35,9 @@ export class HomeComponent implements OnInit {
   
 
 
-  getList(){
+  getList(strpath:string){
     //this.titles = new Array();
-    this.af.list("/Messages").valueChanges()
+    this.af.list(strpath).valueChanges()
       .subscribe(data => {
         this.list = data
         this.titles = new Array();

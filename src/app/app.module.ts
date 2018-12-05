@@ -1,8 +1,8 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routerConfig';
-
 import { AngularFireModule } from 'angularfire2'
 import { AngularFireDatabaseModule } from 'angularfire2/database'
 import { AppComponent } from './app.component';
@@ -41,7 +41,7 @@ import { AppStatisticsComponent } from './components/app-statistics/app-statisti
     NgxEditorModule,
     HttpClientModule,
     AngularFontAwesomeModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [LoginComponent],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="nav-div">
         <a class="navbar-brand" href="/">
-          <img src="src/assets/images/logo.png" alt="logo" style="width:40px;"> <span>FUTO E-Learning App</span>
+          <img src="assets/images/logo.png" alt="logo" style="width:40px;"> <span>FUTO E-Learning App</span>
         </a>
     </div>
     <div width="100%">
@@ -12,8 +12,11 @@
             </option>
         </select> 
     </div>
-      </nav>
+
+    
+
+</nav>
         
 
-    <app-admin-add [selectedTopic]="selectedOption"></app-admin-add>
+    <app-admin-add [selectedTopic]="selectedOption" (messageEvent)="receiveMessage($event)"></app-admin-add>
     

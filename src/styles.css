@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
 #select-div{
     width: 30%;
     margin:45px;
+}
+.radio-inline{
+    size: 20px;
 }
 #editor-title{
     width: 100%;
@@ -33,6 +37,9 @@
 }
 .row{
     margin:30px;
+}
+@media screen and (max-width: 768px) {
+    .row { margin:3px; }
 }
 
 .nav-div{

@@ -1,0 +1,19 @@
+.responsive500 {
+    width:500px;
+    margin: auto;
+    box-shadow: 5px 5px 5px grey;
+    border:1px solid grey;
+    border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+    .responsive500 { width:96%; }
+}
+.form-input {
+    box-shadow: 5px 5px 5px grey;
+    border:1px solid grey;
+    border-radius: 10px;
+}
+.card-title{
+    color: green;
+    align-content: center;
+}

@@ -21,6 +21,17 @@
         <input id = "date" class="form-control" type="text" name="date" [(ngModel)]="date">
     </div>
 
+
+    <form>
+      <label class="radio-inline">
+        <input type="radio" name="optradio" [checked]="isChecked" (click)="toggleChecked1()"> First Semester
+      </label>&nbsp;&nbsp;&nbsp;
+      <label class="radio-inline">
+        <input type="radio" name="optradio" [checked]="!isChecked" (click)="toggleChecked2()"> Second Semester
+      </label>
+    </form>
+
+
     <app-app-statistics></app-app-statistics>
   </div>
 
